@@ -1,9 +1,20 @@
+* {
+	font-size: 20px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 body {
 	display: flex;
 	align-items: center;
 	flex-flow: column nowrap;
-	gap: 10rem;
-	margin: 10rem 0;
+	/* gap: 4rem; */
+	margin: 8rem 0;
+}
+
+h1 {
+	font-size: 2rem;
+	opacity: 0.6;
+	margin: 10rem 0 4rem;
 }
 
 .slideshow {
