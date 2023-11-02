@@ -1,8 +1,9 @@
 body {
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	flex-flow: column nowrap;
+	gap: 10rem;
+	margin: 10rem 0;
 }
 
 .slideshow {

@@ -4,8 +4,9 @@ const slideshows = document.querySelectorAll(".slideshow");
 slideshows.forEach(slideshow => {
 	const slides = slideshow.querySelectorAll(".slideshow__slide");
 	const controls = slideshow.querySelectorAll(".slideshow__control-button");
+	const dotContainer = slideshow.querySelector(".slideshow__dots");
 	const dots = slideshow.querySelectorAll(".slideshow__dot");
-	const counter = slideshow.querySelectorAll(".slideshow__counter");
+	const counter = slideshow.querySelector(".slideshow__counter");
 
 	let index = 0;
 
@@ -54,16 +55,18 @@ slideshows.forEach(slideshow => {
 		if (button.dataset.direction === "next") {
 			incrementIndex()
 		}
-		console.log(index);;
 
 		if (button.dataset.index) {
 			setIndex(parseInt(button.dataset.index))
 		};
 			
-			renderSlideClass();
-			renderCounter();
+		renderSlideClass();
+		renderCounter();
 
 	};
+
+	// Set number of nav-dots according to totalSlides
+	
 
 	controls.forEach(button => {
 		button.addEventListener("click", changeSlide);
@@ -74,7 +77,11 @@ slideshows.forEach(slideshow => {
 	});
 	
 
+	// Render counter on page load 
+	renderCounter();
+
 });
+
 
 
 
