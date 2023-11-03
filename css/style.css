@@ -51,6 +51,8 @@ h1 {
 
 
 .slideshow__dots {
+	display: flex;
+	gap: 10px;
 	position: absolute;
 	top: 101%;
 	left: 50%;

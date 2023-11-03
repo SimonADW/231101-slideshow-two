@@ -13,6 +13,19 @@ slideshows.forEach(slideshow => {
 	const totalSlides = slides.length;
 	const lastIndex = slides.length -1;
 
+	
+	const renderDots = () => { 
+		slides.forEach((slide, index) => {
+			const newDot = document.createElement("button")
+			newDot.classList.add("slideshow__dot");
+			newDot.dataset.index = index;
+			dotContainer.appendChild(newDot);			
+		})
+	}
+
+	renderDots();
+
+
 	const setIndex = (newIndex) => {
 		index = newIndex;
 	}
@@ -35,7 +48,7 @@ slideshows.forEach(slideshow => {
 
 	const renderSlideClass = () => {
 		slides.forEach(slide => {
-			slide.classList.remove("slideshow__slide--visible");
+			slide.classList.remove("slideshow__slide--visible");		
 		});
 
 		slides[index].classList.add("slideshow__slide--visible");
@@ -65,8 +78,7 @@ slideshows.forEach(slideshow => {
 
 	};
 
-	// Set number of nav-dots according to totalSlides
-	
+
 
 	controls.forEach(button => {
 		button.addEventListener("click", changeSlide);
