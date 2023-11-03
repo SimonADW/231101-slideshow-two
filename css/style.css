@@ -7,14 +7,12 @@ body {
 	display: flex;
 	align-items: center;
 	flex-flow: column nowrap;
-	/* gap: 4rem; */
-	margin: 8rem 0;
 }
 
 h1 {
 	font-size: 2rem;
 	opacity: 0.6;
-	margin: 10rem 0 4rem;
+	margin: 8rem 0 2rem;
 }
 
 .slideshow {
@@ -22,6 +20,7 @@ h1 {
 	width: 1000px;
 	height: 600px;
 	background: rgb(238, 237, 237);
+	margin-bottom: 8rem;
 
 }
 

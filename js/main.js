@@ -21,9 +21,16 @@ slideshows.forEach(slideshow => {
 			dotContainer.appendChild(newDot);			
 		})
 	}
-
+	
 	renderDots();	
 	const dots = slideshow.querySelectorAll(".slideshow__dot");
+
+	const renderDotsActive = () => {
+		dots.forEach((button) => {
+			button.classList.remove("slideshow__dot--active");
+		})	
+		dots[index].classList.add("slideshow__dot--active");
+	}
 
 
 	const setIndex = (newIndex) => {
@@ -50,7 +57,7 @@ slideshows.forEach(slideshow => {
 		slides.forEach(slide => {
 			slide.classList.remove("slideshow__slide--visible");		
 		});
-
+		
 		slides[index].classList.add("slideshow__slide--visible");
 	}
 
@@ -59,7 +66,6 @@ slideshows.forEach(slideshow => {
 	}
 
 	const changeSlide = (event) => {
-		console.log("hello");
 		const button = event.currentTarget;
 
 		if (button.dataset.direction === "previous") {
@@ -70,18 +76,13 @@ slideshows.forEach(slideshow => {
 			incrementIndex()
 		}
 
-		if (button.dataset.index) {
-			dots.forEach((button) => {
-				button.classList.remove("slideshow__dot--active");
-			})			
-			setIndex(parseInt(button.dataset.index))
-			console.log("hello");
-			button.classList.add("slideshow__dot--active");
+		if (button.dataset.index) {				
+			setIndex(parseInt(button.dataset.index))			
 		};
 			
 		renderSlideClass();
 		renderCounter();
-
+		renderDotsActive();
 	};
 
 
@@ -95,9 +96,9 @@ slideshows.forEach(slideshow => {
 	});
 	
 
-	// Render counter on page load 
+	// Render on page load;
 	renderCounter();
-
+	renderDotsActive();
 });
 
 
