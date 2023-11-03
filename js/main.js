@@ -4,8 +4,7 @@ const slideshows = document.querySelectorAll(".slideshow");
 slideshows.forEach(slideshow => {
 	const slides = slideshow.querySelectorAll(".slideshow__slide");
 	const controls = slideshow.querySelectorAll(".slideshow__control-button");
-	const dotContainer = slideshow.querySelector(".slideshow__dots");
-	const dots = slideshow.querySelectorAll(".slideshow__dot");
+	const dotContainer = slideshow.querySelector(".slideshow__dots");	
 	const counter = slideshow.querySelector(".slideshow__counter");
 
 	let index = 0;
@@ -23,7 +22,8 @@ slideshows.forEach(slideshow => {
 		})
 	}
 
-	renderDots();
+	renderDots();	
+	const dots = slideshow.querySelectorAll(".slideshow__dot");
 
 
 	const setIndex = (newIndex) => {
@@ -59,6 +59,7 @@ slideshows.forEach(slideshow => {
 	}
 
 	const changeSlide = (event) => {
+		console.log("hello");
 		const button = event.currentTarget;
 
 		if (button.dataset.direction === "previous") {
@@ -70,7 +71,12 @@ slideshows.forEach(slideshow => {
 		}
 
 		if (button.dataset.index) {
+			dots.forEach((button) => {
+				button.classList.remove("slideshow__dot--active");
+			})			
 			setIndex(parseInt(button.dataset.index))
+			console.log("hello");
+			button.classList.add("slideshow__dot--active");
 		};
 			
 		renderSlideClass();
